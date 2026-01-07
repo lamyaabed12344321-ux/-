@@ -1,0 +1,147 @@
+*{
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* الخلفية المتدرجة المتحركة */
+body{
+  background: linear-gradient(120deg,#a1c4fd,#c2e9fb,#f7f8fc);
+  background-size: 300% 300%;
+  animation: moveBg 12s infinite alternate;
+  margin: 0;
+  color:#222;
+  transition: .3s;
+}
+
+/* حركة الخلفية */
+@keyframes moveBg{
+  0%{background-position: 0% 50%;}
+  100%{background-position: 100% 50%;}
+}
+
+/* الوضع الليلي */
+body.dark{
+  background: linear-gradient(#0f172a,#020617);
+  color:white;
+}
+
+/* الهيرو */
+.hero{
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 0 0 50% 50% / 0 0 10% 10%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  animation: fadeUp 0.9s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* صورة الهيرو */
+.hero-img{
+  width:150px;
+  max-width:100%; /* مطابق لمتطلبات الواجب */
+  border-radius:15px;
+  margin-bottom:15px;
+}
+
+/* زر الوضع الليلي */
+#modeBtn{
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background:#4b6cb7;
+  color:white;
+  animation:pulse 2s infinite;
+  transition: .3s;
+}
+
+#modeBtn:hover{
+  background:#182848;
+}
+
+/* fade-in للعناصر */
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+/* نبض الزر */
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+  100%{transform:scale(1)}
+}
+
+/* الأقسام */
+.about, .contact{
+  padding: 40px 20px;
+  text-align: center;
+  background: rgba(255,255,255,0.8);
+  margin: 20px auto;
+  border-radius: 15px;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  animation: fadeUp 0.9s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* قائمة المهارات */
+ul{
+  list-style: none;
+  padding: 0;
+}
+
+ul li{
+  background:white;
+  margin:8px auto;
+  width:140px;
+  border-radius:12px;
+  padding:6px;
+  box-shadow:0 6px 15px rgba(0,0,0,.08);
+  transition:.3s;
+  color: #222 !important; /* لضمان ظهور النص */
+}
+
+ul li:hover{
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* النص داخل بطاقات المهارات في الوضع الليلي */
+body.dark .about ul li {
+    background-color: #f7f8fc; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* زر قل مرحباً */
+#greetBtn{
+  padding:10px 20px;
+  border-radius:25px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+  background:#ff7e5f;
+  color:white;
+  transition:.3s;
+}
+
+#greetBtn:hover{
+  background:#eb4a1c;
+}
+
+/* تجاوب للجوال - تغيير لون الخلفية */
+@media (max-width: 600px) {
+  body {
+    background: #e0f7fa; /* لون خلفية مختلف على الجوال */
+  }
+  h1 {
+    font-size: 22px;
+  }
+  #modeBtn, #greetBtn{
+    font-size: 14px;
+  }
+}
